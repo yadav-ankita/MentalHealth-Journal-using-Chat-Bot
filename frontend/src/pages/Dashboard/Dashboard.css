@@ -1,0 +1,227 @@
+.DashContainer{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px;
+      background-color: #f4f6f8;
+      width: 100vw;
+      box-sizing: border-box;
+}
+.welcome-header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     text-align: center;
+     padding: 5px;
+}
+.symtoms-chat{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+}
+.user-input {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 30px;
+  width: 50%;
+}
+.report-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.report-icon {
+  font-size: 1.5rem;
+  color: #3b82f6; /* Tailwind Blue-500 */
+}
+
+.report-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b; /* Tailwind Slate-800 */
+  margin: 0;
+}
+
+.selection-severity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #e5e7eb;
+  border-radius: 5px;
+}
+.selection-severity input{
+    width: 100%;
+}
+.selection-severity select{
+      height: 30px;
+      border-radius: 5px;
+      outline: none;
+      margin-right: 20px;
+}
+.selection-severity input::placeholder {
+   color: #9ca3af; 
+}
+
+.add-btn {
+  background-color: #0065F8; /* Tailwind Violet-700 */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.submit-btn {
+  background-color: #00f81d; /* Tailwind Green-500 */
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.send-icon {
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+/* AI Response */
+.ai-response {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  width: 50%;
+  height: 14rem;
+}
+
+.assessment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.assessment-icon {
+  font-size: 1.5rem;
+  color: #facc15; /* Tailwind Yellow-400 */
+}
+
+.assessment-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a; /* Tailwind Slate-900 */
+  margin: 0;
+}
+
+.assessment-text {
+  font-style: italic;
+  color: #334155; /* Tailwind Slate-700 */
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Personal Chat */
+.chat-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.chat-icon {
+  font-size: 1rem;
+  color: #3b82f6;
+}
+
+.chat-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+}
+
+.chat-box {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30rem;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  display: flex;
+  justify-content:center;
+  border-top: 1px solid #e5e7eb;
+  overflow: hidden;
+  position: relative;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  border-right: none;
+  outline: none;
+}
+
+.send-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 9px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.5%;
+  top:19%;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+

@@ -1,0 +1,167 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-image: linear-gradient(to right, #9082d6, #C8A1E0);
+}
+
+.blockElements {
+  display: inline-block;
+  color: white;
+  
+}
+.webName h3 {
+  margin: 0px;
+}
+.rightSideNav{
+  display: flex;
+  margin: 5px;
+  width: 70vw;
+  height: 10vh;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+.rightSide {
+  display: flex;
+  margin: 5px;
+  width: 40vw;
+  height: 10vh;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+.Login {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0065F8;
+    padding: 10px;
+    border-radius: 6px;
+}
+.Logout{
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1b1c1c;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.Logout:hover{
+    background-color: red;
+}
+.DashBoard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+}
+.About{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 20px;
+    padding: 10px;
+}
+.DashBoard:hover{
+      background-color: #0065F8;
+      border-radius: 6px;
+}
+.About:hover{
+      background-color: #0065F8;
+      border-radius: 6px;
+}
+.Login:hover{
+     background-color: #00f81d;
+}
+.contentcontainer {
+  height: 35rem;
+  background-color: #e7edff;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.content {
+  margin-top: 200px;
+}
+
+.btn {
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.Box {
+  padding: 24px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease-in-out;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.Box:hover {
+  transform: translateY(-4px);   /* Optional hover effect */
+}
+.icon{
+   font-size: 2rem;
+}
+.step{
+     display: flex;
+     margin-top: 150px;
+     flex-direction: column;
+     align-items: center;
+}
+.step-number{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 50px;
+     width: 50px;
+     border-radius: 25px;
+     background-color: #0065F8;
+     color:white;
+     font-size: 2rem;
+     margin-left: 2px;
+}
+.step-description{
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 auto;
+    text-align: center;
+}
+.aboutContainer{
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      margin-top: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+}
+.AboutContent{
+      padding: 20px;
+      background-color: white;
+      max-width: 500px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      line-height: 1.7rem;
+      color: #303030;
+}

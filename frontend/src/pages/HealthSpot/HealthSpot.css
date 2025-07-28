@@ -1,0 +1,42 @@
+.find-doctor-container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 100px;
+     width: 100vw;
+}
+.search{
+     display: flex;
+     width: 17rem;
+     justify-content: space-around;
+}
+.search-box{
+     position: relative;
+     display: flex;
+}
+.search-icon{
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  color: #888;
+  font-size: 16px;
+}
+.search-input{
+     border-radius: 6px;
+     width: 100%;
+     margin-left: 20px;
+    padding: 10px 12px 10px 38px; 
+}
+.search-btn{
+     border-radius: 6px;
+     font-size: 1rem;
+     outline: none;
+     border: 1px;
+     background-color: #186ff3;
+     color: white;
+     height: 2.1rem;
+     margin-top: 10px;
+}
+.search-btn:hover {
+  background-color: #125dc1;
+}

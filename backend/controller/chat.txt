@@ -1,0 +1,28 @@
+const Chat = require('../model/Chat');
+const { StatusCodes } = require('http-status-codes');
+const { Configuration, OpenAIApi } = require('openai');
+export const configureOpenAI = () => {
+    const config = new Configuration({
+        apiKey:  process.env.OPEN_AI_SECRET_KEY,
+        organization: process.env.OPEN_AI_ORG
+    })
+    return config
+}
+// send all chats with new ones to OpenAI API
+		const config = configureOpenAI();
+		const openai = new OpenAIApi(config);
+
+		// make request to openAi
+		// get latest response
+		const chatResponse = await openai.createChatCompletion({
+			model: "gpt-3.5-turbo",
+			messages: chats,
+		});
+
+		// push latest response to db
+		user.chats.push(chatResponse.data.choices[0].message);
+		await user.save();
+
+		return res.status(200).json({ chats: user.chats });
+        import { Configuration } from "openai"
+
