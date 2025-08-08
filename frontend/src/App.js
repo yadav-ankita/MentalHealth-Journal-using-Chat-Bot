@@ -3,15 +3,26 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import About from './pages/About';
-import Profile from './pages/Profile';
-import MyPlan from './pages/MyPlan';
+import Profile from './pages/Profile'
 import HealthSpot from './pages/HealthSpot';
+import Loader from './components/Loader'
+import { ToastContainer } from 'react-toastify';
 import {  Routes,Route } from 'react-router-dom';
 import './App.css';
 import PrivateRoute from './pages/PrivateRoute';
+import { useGlobalContext } from './context/AppContext';
 function App() {
+    const { authChecking } = useGlobalContext()
+    if (authChecking) {
+    <div style={{marginTop:'300px'}}>
+        <Loader />
+        <h2 style={{ textAlign: 'center', marginTop: '1rem' }}>Checking Authentication...</h2>
+        <p style={{ textAlign: 'center', color: 'gray' }}>Please Wait.</p>
+    </div>
+  }
   return (
-      <Routes>
+    <>
+        <Routes>
           <Route path='/'  element={<Home/>}>Home</Route>
           <Route path='/Dashboard' element={
             <PrivateRoute>
@@ -26,15 +37,17 @@ function App() {
                <Profile/>
             </PrivateRoute>
             }>Profile</Route>
-          <Route path='/MyPlan' element={
-            <PrivateRoute> <MyPlan/></PrivateRoute>
-           }>MyPlan</Route>
           <Route path='/HealthSpot' element={
             <PrivateRoute>
                 <HealthSpot/>
             </PrivateRoute>
         }>FindDoctors</Route>
       </Routes>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
+      
   )
 }
 export default App;
+
+

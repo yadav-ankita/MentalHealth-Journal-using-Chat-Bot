@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Link,Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import { useGlobalContext } from '../../context/AppContext';
+import { toast } from 'react-toastify';
+
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const Form = {
@@ -13,7 +15,6 @@ export default function Signup() {
   }
   const setEmail = (e) => {
     setForm({ ...form, email: e.target.value })
-
   }
   const setName = (e) => {
     setForm({ ...form, name: e.target.value });
@@ -24,7 +25,7 @@ export default function Signup() {
 
   }
   const [form, setForm] = useState(Form);
-  const { user, register} = useGlobalContext();
+  const { user, register } = useGlobalContext();
   const handleSingUp = (e) => {
     e.preventDefault();
     const { name, email, password } = form;
@@ -32,16 +33,16 @@ export default function Signup() {
   };
   return (
     <>
-        {user && <Navigate to='/Dashboard'/>}
+      {user && <Navigate to='/Dashboard' />}
       <Navbar />
       <div className='container'>
         <form onSubmit={handleSingUp} className='FormContainer'>
           <h4 style={{ textAlign: 'center' }}>Signup</h4>
-          <label htmlFor='name'></label>
-          <input type='text' name='name' placeholder='Name' onChange={setName} />
-          <label htmlFor='email'></label>
-          <input type='email' name='email' placeholder='Email' onChange={setEmail} />
-          <label htmlFor='password'></label>
+          <label></label>
+          <input type='text' placeholder='Name' onChange={setName} />
+          <label></label>
+          <input type='email' placeholder='Email' onChange={setEmail} />
+          <label></label>
           <div style={{ position: 'relative', width: '100%' }}>
             <input
               type={showPassword ? 'text' : 'password'}

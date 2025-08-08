@@ -33,12 +33,12 @@ export default function Navbarauth() {
                             <p className='blockElements'>About</p>
                         </div>
                     </Link>
-                    <Link to="/MyPlan" style={{ textDecoration: 'none' }}>
+                    {/* <Link to="/MyPlan" style={{ textDecoration: 'none' }}>
                         <div className='About'>
                             <span><CiSearch style={{ color: 'white', marginRight: '10px' }} /></span>
                             <p className='blockElements'>MyPlan</p>
                         </div>
-                    </Link>
+                    </Link> */}
                     <Link to="/HealthSpot" style={{ textDecoration: 'none' }}>
                         <div className='About'>
                             <span><CiSearch style={{ color: 'white', marginRight: '10px' }} /></span>
