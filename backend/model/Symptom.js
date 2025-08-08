@@ -12,5 +12,5 @@ const symptomReportSchema = new mongoose.Schema({
     aiSuggestion: String,
     createdAt: { type: Date, default: Date.now }
 });
-
+       
 module.exports = mongoose.model('Symptom', symptomReportSchema);

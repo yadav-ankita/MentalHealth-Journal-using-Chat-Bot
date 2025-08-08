@@ -7,9 +7,8 @@ const errorHandlerMiddleware=(err,req,res,next)=>{
     // return res
     // .status(StatusCodes.INTERNAL_SERVER_ERROR)
     // .send('Something went  wrong try agian later')
-    
      let customError = {
-    // set default
+       // set default
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     msg: err.message || 'Something went wrong try again later',
   }
@@ -30,8 +29,7 @@ if (err.name === 'ValidationError') {
     customError.msg = `No item found with id : ${err.value}`
     customError.statusCode = 404
   }
-
-  return res.status(customError.statusCode).json({ msg: customError.msg })
+   return res.status(customError.statusCode).json({ msg: customError.msg })
 }
 
 module.exports=errorHandlerMiddleware
