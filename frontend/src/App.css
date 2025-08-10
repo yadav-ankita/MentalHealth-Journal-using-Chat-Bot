@@ -314,10 +314,10 @@ button {
      border: 1px solid #ddd;
 }
 .health-btn{
-      margin: auto;
      background-color: rgb(29, 40, 240);
-     width: 99%;
      border-radius: 6px;
+      width: 99%;
+     margin-left: 10px;
 }
 .symptom-box {
   background: #f9f9ff;

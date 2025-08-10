@@ -121,7 +121,7 @@ export default function Profile() {
                     <span><GoPerson className='profile-icon' style={{ color: '#125dc1' }} /></span>
                     <h2>Add New Health Goals</h2>
                   </div>
-                  <label htmlFor='goal'>Goal Description</label>
+                  <label>Goal Description</label>
                   <input
                     type='text'
                     min={today}
@@ -136,9 +136,9 @@ export default function Profile() {
                     onChange={e => setTargetdate(e.target.value)}
                   />
                   <button className='health-btn' onClick={handleHealth}>
-                    <div className='profile-wrap profile-header'>
-                      <span><GoPerson className='profile-icon' style={{ color: 'white' }} /></span>
-                      <h3 style={{ color: 'white' }}>Add New Health Goals</h3>
+                    <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'10px'}}>
+                      <span><GoPerson style={{color:'white',fontSize:'1.2rem'}} /></span>
+                      <h3 style={{ color: 'white'}}>Add New Health Goals</h3>
                     </div>
                   </button>
                 </div>
