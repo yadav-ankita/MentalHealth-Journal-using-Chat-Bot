@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h2 style="text-decoration: underline; padding-bottom: 4px;">🧠 Cogniwell – AI-Powered Health & Wellness Companion</h2>
+<h2 style="text-decoration: underline; padding-bottom: 4px;">🧠 CogniWell – AI-Powered Health & Wellness Companion</h2>
 
-<p>Welcome to Cogniwell, an AI-driven health and wellness platform tailored specifically for users in India. Cogniwell leverages Google Gemini AI to provide reliable and insightful health guidance focused on symptom checking and interactive AI chat support.<br>
-With Cogniwell, users can easily check symptoms, chat with an intelligent health assistant, and find nearby doctors or clinics — all through a simple, intuitive interface.</p>
+<p>Welcome to CogniWell, an AI-driven health and wellness platform tailored specifically for users in India. CogniWell leverages Google Gemini AI to provide reliable and insightful health guidance focused on symptom checking and interactive AI chat support.<br>
+With CogniWell, users can easily check symptoms, chat with an intelligent health assistant, and find nearby doctors or clinics — all through a simple, intuitive interface.</p>
 
-<h2 style="text-decoration: underline; padding-bottom: 4px;">🚀 What Cogniwell Offers</h2>
+<h2 style="text-decoration: underline; padding-bottom: 4px;">🚀 What CogniWell Offers</h2>
 <ul>
   <li>🩺 <strong>AI Symptom Checker:</strong> Submit your symptoms and receive AI-generated health insights based on the powerful Gemini API.</li>
   <li>💬 <strong>AI Chat Assistant:</strong> Get detailed advice and personalized health suggestions through a conversational AI assistant.</li>
