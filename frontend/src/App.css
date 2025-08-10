@@ -7,26 +7,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 2rem;
   background-image: linear-gradient(to right, #9082d6, #C8A1E0);
+  z-index: 1000;
 }
-
 .blockElements {
   display: inline-block;
   color: white;
-  
 }
-.webName h3 {
+.webName h2 {
   margin: 0px;
 }
 .rightSideNav{
   display: flex;
-  margin: 5px;
   width: 70vw;
   height: 10vh;
   justify-content: space-evenly;
   align-items: center;
-
+  margin-left:200px;
 }
 .rightSide {
   display: flex;
@@ -35,14 +33,83 @@
   height: 10vh;
   justify-content: space-evenly;
   align-items: center;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+/* navbtn newly added */
+ .nav-btn{
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    display: none;
+    opacity: 0;
+    color: rgb(244, 243, 243);
+    font-size: 1.8rem;
+    margin-right: 3rem;
+}
+/*for navbar only*/
 
+@media only screen and (max-width:762px) {
+      .nav-btn{
+         display: block;
+          opacity: 1;
+          font-size: 1.5rem;
+      }
+      .rightSideNav,.rightSide{
+          position: fixed;
+          top: 0;
+          right: 0;
+          height: 50%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+          transition: 0s;
+          transform: translateY(-100vh);
+          background-image: linear-gradient(to right, #9082d6, #C8A1E0);
+      }
+      .rightSideNav.responsive_nav{
+          /* right: 0; */
+          transform: none;
+      }
+       .rightSide.responsive_nav{
+          /* right: 0; */
+          transform: none;
+      }
+      .nav-close-btn{
+         position: absolute;
+         top: 0;
+         right: 0;
+      }
+  .Navbar{
+     padding: 0 1rem;
+  }
+    .webName {
+    display: flex;
+    align-items: center;
+    z-index: 1100; /* ensure it stays above menu */
+  }
+  .webName h2 {
+    font-size: 1.2rem;
+    color: black; 
+    text-align: center;
+  }
+  
 }
 .Login {
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0065F8;
+    background-color: #0065F8;  
     padding: 10px;
     border-radius: 6px;
 }
@@ -52,14 +119,14 @@
     align-items: center;
     justify-content: center;
     background-color: #1b1c1c;
-    padding: 10px;
+    padding: 1rem;
     border-radius: 6px;
     cursor: pointer;
 }
 .Logout:hover{
     background-color: red;
 }
-.DashBoard{
+.DashBoard,.About{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,19 +134,7 @@
     height: 20px;
     padding: 10px;
 }
-.About{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 20px;
-    padding: 10px;
-}
-.DashBoard:hover{
-      background-color: #0065F8;
-      border-radius: 6px;
-}
-.About:hover{
+.DashBoard:hover,.About:hover{
       background-color: #0065F8;
       border-radius: 6px;
 }
@@ -96,7 +151,6 @@
 .content {
   margin-top: 200px;
 }
-
 .btn {
   padding: 10px;
   margin: 15px;
@@ -147,7 +201,7 @@
     text-align: center;
 }
 .aboutContainer{
-      margin: 0;
+      margin:0;
       padding: 0;
       height: 100vh;
       margin-top: 55px;
@@ -164,4 +218,932 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       line-height: 1.7rem;
       color: #303030;
+}
+/* Loader Component Styling */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #6C63FF;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+/* Profile page css */
+.profile-container{
+     display: flex;
+     justify-content: flex-start;
+     margin-top: 90px;
+     width: 100vw;
+     background-color: #f4f6f8;
+     padding-bottom: 30px;
+}
+.profile-info > p{
+    margin-top: 5px;
+    margin-left: 3px;
+    font-weight: bold;
+}
+.profile-container > div {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* Centered "Ankita's Profile" */
+.profile-header:first-child {
+   justify-content: center;
+   border-radius: 5px;
+   margin-top: 50px;
+}
+.profile-wrap{
+    display: flex;
+    align-items: center;  
+    text-align: center;
+    gap: 10px;
+}
+.profile-icon{
+    font-size: 1.5rem;
+    color: #693382;
+}
+.profile-name{
+   color: #693382;
+   font-weight: 1000;
+}
+.profile-info{
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+.black{
+    color:black;
+}
+.health-goals{
+     display: flex;
+     flex-direction: column;
+}
+.add-health{
+   display: flex;
+   flex-direction: column;
+}
+.last-row{
+  width: 100%;
+     display: flex;
+     gap: 20px;
+}
+.last-row > div{
+     width: 50%;
+}
+.profile-wrap>input{
+     border: 1px solid #ddd;
+}
+.health-btn{
+      margin: auto;
+     background-color: rgb(29, 40, 240);
+     width: 99%;
+     border-radius: 6px;
+}
+.symptom-box {
+  background: #f9f9ff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.message-thread {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 6px;
+}
+  .user-msg {
+  background-color: #e0f0ff;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+ .chat-box .ai-msg {
+ background-color: #e1dfe6; 
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+.goal-list {
+  padding-left: 20px;
+}
+
+.goal-item {
+  background-color: #c0fecf;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.scroll-box {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-box {
+  background: #f5f8ff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* tighter spacing */
+}
+.chat-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #333;
+}
+.report-date {
+  font-weight: bold;
+  color: #444;
+}
+.latest-header {
+  font-weight: bold;
+  color: #0018B5;
+}
+.message-thread {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.user-msg {
+  background-color: #e0f0ff;
+  padding: 8px;
+  border-radius: 6px;
+}
+.ai-msg {
+  background-color: #e1dfe6;
+  padding: 8px;
+  border-radius: 6px;
+}
+/* Home page css */
+.section-title{ 
+    margin-top: 40px;
+    text-align: center;
+ }
+ .flex-container-with-margin{
+     display: flex;
+     justify-content: space-around;
+     margin-top: 20px;
+ }
+ .how-it-works-section {
+    height: 400px;
+    background-color: #f8fafc;
+    margin-top: 50px;
+}
+.how-it-works-title {
+    text-align: center;
+    color: black;
+    position: relative;
+    top: 100px;
+}
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer-section {
+    background-color: #0065F8;
+    height: 500px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.white-text {
+    color: white;
+}
+.footer-content {
+    text-align: center;
+    max-width: 500px;
+}
+.cta-button {
+    color: #0065F8;
+    background-color: white;
+    border: 1px solid #0065F8;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+/* Login page styling */
+.container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 50px;
+}
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.loginBtn {
+    padding: 10px;
+    margin: 10px;
+    background-color: hsl(213, 83%, 51%);
+    border-radius: 4px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+input{
+    padding: 10px;
+    margin: 10px;
+    outline: none;
+    border-radius: 3px;
+     border: 1px solid #ddd;
+}
+/* Healthspot styling */
+.find-doctor-container{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 100px;
+     width: 100vw;
+}
+.search{
+     display: flex;
+     width: 17rem;
+     justify-content: space-around;
+}
+.search-box{
+     position: relative;
+     display: flex;
+     margin-top: 40px;
+}
+.search-icon{
+  position: absolute;
+  top: 35%;
+  left: 10%;
+  color: #888;
+  font-size: 16px;
+}
+.search-input{
+     border-radius: 6px;
+     width: 100%;
+     margin-left: 20px;
+    padding: 10px 12px 10px 38px; 
+}
+.search-btn{
+     border-radius: 6px;
+     font-size: 1rem;
+     outline: none;
+     border: 1px;
+     background-color: #186ff3;
+     color: white;
+     height: 2.1rem;
+     margin-top: 10px;
+     padding: 0.5rem;
+}
+.search-btn:hover {
+  background-color: #125dc1;
+}
+.places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.place-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 5px solid #2a6cdf;
+  transition: all 0.2s ease-in-out;
+}
+
+.place-card:hover {
+  transform: translateY(-5px);
+}
+
+.place-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2a6cdf;
+}
+
+.map-btn {
+  display: inline-block;
+  background-color: #2a6cdf;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+/* Dashboard css */
+.DashContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  background-color: #f4f6f8;
+  width: 100%;
+  box-sizing: border-box;
+}
+.welcome-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+}
+.symtoms-chat {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.user-input,
+.ai-response {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+  width: 90%;
+  /* make them full width on small screens */
+  max-width: 800px;
+  flex: 1; /* <-- allow them to grow/shrink equally */
+  min-width: 0; /* <-- prevent overflow issues */
+  /* limit max width for readability */
+}
+.report-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.report-icon {
+  font-size: 1.5rem;
+  color: #3b82f6;
+  /* Tailwind Blue-500 */
+}
+.report-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  /* Tailwind Slate-800 */
+  margin: 0;
+}
+.selection-severity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #e5e7eb;
+  border-radius: 5px;
+}
+.selection-severity input {
+  width: 100%;
+}
+.selection-severity select {
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  margin-right: 20px;
+}
+.selection-severity input::placeholder {
+  color: #9ca3af;
+}
+.add-btn {
+  background-color: #0065F8;
+  /* Tailwind Violet-700 */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.submit-btn {
+  background-color: #00f81d;
+  /* Tailwind Green-500 */
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.send-icon {
+  margin-left: 8px;
+  font-size: 1.2rem;
+}
+/* AI Response */
+.assessment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.assessment-icon {
+  font-size: 1.5rem;
+  color: #facc15;
+  /* Tailwind Yellow-400 */
+}
+
+.assessment-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  /* Tailwind Slate-900 */
+  margin: 0;
+}
+
+.assessment-text {
+  font-style: italic;
+  color: #334155;
+  /* Tailwind Slate-700 */
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.suggestion-title {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.suggestion-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 5px;
+}
+.suggestion-list li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.self-care {
+  color: #2563eb;
+  /* Tailwind Blue-600 */
+}
+
+.seek-professional {
+  color: #dc2626;
+  /* Tailwind Red-600 */
+}
+
+/* ai response by chatgpt */
+.ai-response {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  min-height: 14rem;
+}
+.ai-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.ai-section strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+.suggestion-list {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+.suggestion-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Personal Chat */
+.chat-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.chat-icon {
+  font-size: 1rem;
+  color: #3b82f6;
+}
+
+.chat-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+}
+
+.chat-box {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30rem;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.chat-input {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #e5e7eb;
+  overflow: hidden;
+  position: relative;
+}
+.message-bubble.user {
+  align-self: flex-end;
+  background-color: #4c6ef5;
+  color: white;
+}
+
+.message-bubble.ai {
+  align-self: flex-start;
+  background-color: #f1f3f5;
+  color: #212529;
+}
+.chat-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.placeholder {
+  color: #888;
+  text-align: center;
+}
+.chat-input input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  border-right: none;
+  outline: none;
+}
+
+.send-btn {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 9px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.5%;
+  top: 19%;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+@media (max-width: 762px) {
+  .symtoms-chat {
+    flex-direction: column;
+    align-items: center; 
+  }
+  .aboutContainer{
+    margin-top: 150px;
+  }
+   .chat-container {
+    max-width: 80%;
+  }
+  .last-row{
+       display: flex;
+       flex-direction: column;    
+  }
+  .last-row div{
+        width: 30rem;
+  }
+  .user-input,
+  .ai-response {
+    width: 80%;      
+    max-width: 80%;  
+  }
+}
+/* home page css by claude ai  e2e9ff*/
+/* Add these responsive improvements to your existing CSS */
+
+/* Fix for Content component layout issues */
+.contentcontainer {
+  height: auto;
+  min-height: 35rem;
+  background-color: #e0e9fd;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 10vh; /* Account for fixed navbar */
+}
+.content {
+  margin-top: 0; /* Remove excessive margin */
+  flex: 1;
+  max-width: 50%;
+  z-index: 10;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #1e293b;
+  margin: 15px 0;
+}
+
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 15px 0 25px 0;
+}
+
+/* Image container */
+.image {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* Mobile responsiveness for main sections */
+@media only screen and (max-width: 762px) {
+  
+  /* Content container adjustments */
+  .contentcontainer {
+    height: auto;
+    min-height: 25rem;
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10vh;
+  }
+  
+  .content {
+    margin-top: 0;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 100%;
+    order: 1;
+    padding-right: 1rem;
+  }
+  
+  .content h1 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    margin: 15px 0;
+  }
+  
+  .image {
+    max-width: 90%;
+    order: 2;
+    margin-top: 1rem;
+  }
+  
+  .image img {
+    max-height: 300px;
+    width: auto;
+  }
+  
+  /* Why Choose CareWell section */
+  .section-title {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+  
+  .flex-container-with-margin {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 1rem;
+  }
+  
+  .Box {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* How it works section */
+  .how-it-works-section {
+    height: auto;
+    padding: 2rem 0;
+  }
+  
+  .how-it-works-title {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    position: static;
+    margin-bottom: 2rem;
+  }
+  
+  .flex-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .step {
+    margin-top: 0;
+  }
+  
+  .step-number {
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .step-description {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Footer section */
+  .footer-section {
+    height: auto;
+    padding: 3rem 1rem;
+    margin-top: 2rem;
+  }
+  
+  .footer-content {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .footer-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Tablet responsiveness */
+@media only screen and (min-width: 763px) and (max-width: 1024px) {
+  
+  .flex-container-with-margin {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .Box {
+    max-width: 300px;
+    flex: 0 1 calc(50% - 1rem);
+  }
+  
+  .flex-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .step {
+    flex: 0 1 calc(33.33% - 2rem);
+    max-width: 250px;
+  }
+  
+  .footer-content {
+    max-width: 600px;
+  }
+}
+
+/* Extra small devices */
+@media only screen and (max-width: 480px) {
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .Box {
+    padding: 16px;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+  }
+  
+  .step-description {
+    font-size: 0.9rem;
+  }
+  
+  .footer-content h1 {
+    font-size: 1.3rem;
+  }
+  
+  .footer-content p {
+    font-size: 0.9rem;
+  }
 }

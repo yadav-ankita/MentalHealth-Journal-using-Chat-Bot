@@ -1,8 +1,6 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useGlobalContext } from '../../context/AppContext';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
-import './Login.css'
 import Navbar from '../../components/Navbar/Navbar';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";

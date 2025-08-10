@@ -8,7 +8,6 @@ import { FiMessageSquare } from "react-icons/fi";
 import { FiPlusCircle } from "react-icons/fi";
 import { FaMinus } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/AppContext'
-import './Dashboard.css';
 export function SymtopInput({ onRemove, showRemoveButton, onSymptomChange, onSeverityChange, index, value }) {
   return (
     <div className="selection-severity" style={{ display: 'flex', alignItems: 'center' }}>
@@ -168,7 +167,7 @@ export default function Dashboard() {
               <span className="chat-icon"><FiMessageSquare /></span>
               <h1 className="chat-title">Your Personal Chat</h1>
             </div>
-            <div className="chat-box">
+            <div className="chat-box">          
               <div className="chat-messages">
                 {chatHistory.length === 0 && <p className="placeholder">Start your conversation with AI</p>}
                 {chatHistory.map((msg, idx) => (

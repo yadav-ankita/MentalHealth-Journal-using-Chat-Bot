@@ -1,24 +1,36 @@
 import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_ERROR,
+
   SET_USER,
   LOGOUT_USER,
+
+  SET_ERROR,
+
   SET_LOADING,
   AUTH_CHECK_DONE,
+
   SUBMIT_SYMPTOMS_SUCCESS,
   SUBMIT_SYMPTOMS_ERROR,
+
   SEND_CHAT_SUCCESS,
   SEND_CHAT_ERROR,
+
   FETCH_PLACE_SUCCESS,
   FETCH_PLACE_ERROR,
-  FETCH_ALL_CHAT_SUCESS,
+
+  FETCH_ALL_CHAT_SUCCESS,
   FETCH_ALL_CHAT_ERROR,
+
   FETCH_ALL_SYMPTOM_SUCCESS,
   FETCH_ALL_SYMPTOM_ERROR,
-  FETCH_PROFILE_INFO_SUCESS,
+
+  FETCH_PROFILE_INFO_SUCCESS,
   FETCH_PROFILE_INFO_ERROR,
+
   CREATE_HEALTH_GOAL_SUCCESS,
   CREATE_HEALTH_GOAL_ERROR,
+  
   FETCH_HEALTH_GOAL_SUCCESS,
   FETCH_HEALTH_GOAL_ERROR
 } from './action'
@@ -26,6 +38,9 @@ import {
 const reducer = (state, action) => {
   if (action.type === SET_LOADING) {
     return { ...state, isLoading: true}
+  }
+  if(action.type===SET_ERROR){
+    return {...state,errorMsg:null}
   }
   if(action.type===AUTH_CHECK_DONE){
     return {...state,authChecking:false}
@@ -65,21 +80,24 @@ const reducer = (state, action) => {
      return { 
       ...state, 
       isLoading: false,
-      symptomResult: null 
+      symptomResult: null,
+       errorMsg:action.payload
     }
   }
   if(action.type===SEND_CHAT_SUCCESS){
      return {
        ...state,
        isLoading:false,
-       ChatResponse:action.payload
+       ChatResponse:action.payload,
+       
      }
   }
   if(action.type===SEND_CHAT_ERROR){
       return{
         ...state,
         isLoading:false,
-        ChatResponse:null
+        ChatResponse:null,
+        errorMsg:action.payload
       }
   }
   if(action.type===FETCH_PLACE_SUCCESS){
@@ -94,9 +112,10 @@ const reducer = (state, action) => {
           ...state,
           isLoading:false,
           places:[],
+          errorMsg:action.payload,
       }
   }
-  if(action.type===FETCH_ALL_CHAT_SUCESS){
+  if(action.type===FETCH_ALL_CHAT_SUCCESS){
       return{
          ...state,
          isLoading:false,
@@ -106,7 +125,8 @@ const reducer = (state, action) => {
   if(action.type===FETCH_ALL_CHAT_ERROR){
          return{
          ...state,
-         isLoading:false
+         isLoading:false,
+          errorMsg:action.payload
       }
   }
   if(action.type===FETCH_ALL_SYMPTOM_SUCCESS){
@@ -119,10 +139,11 @@ const reducer = (state, action) => {
   if(action.type===FETCH_ALL_SYMPTOM_ERROR){
              return{
          ...state,
-         isLoading:false
+          isLoading:false,
+          errorMsg:action.payload
       }
   }
-  if(action.type===FETCH_PROFILE_INFO_SUCESS){
+  if(action.type===FETCH_PROFILE_INFO_SUCCESS){
         return{
              ...state,
              isLoading:false,
@@ -133,6 +154,7 @@ const reducer = (state, action) => {
         return{
           ...state,
           isLoading:false,
+           errorMsg:action.payload
         }
   }
   if(action.type===CREATE_HEALTH_GOAL_SUCCESS){
@@ -144,7 +166,8 @@ const reducer = (state, action) => {
   if(action.type===CREATE_HEALTH_GOAL_ERROR){
       return{
          ...state,
-         isLoading:false
+         isLoading:false,
+         errorMsg:action.payload
       }
   }
   if(action.type===FETCH_HEALTH_GOAL_SUCCESS){
@@ -157,7 +180,8 @@ const reducer = (state, action) => {
   if(action.type===FETCH_HEALTH_GOAL_ERROR){
         return{
           ...state,
-           isLoading:false
+           isLoading:false,
+          errorMsg:action.payload
         }
   }
   throw new Error(`no such action : ${action}`)

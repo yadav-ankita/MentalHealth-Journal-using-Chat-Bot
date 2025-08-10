@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import Navbarauth from '../../components/NavbarAuth/Navbarauth';
 import { FaSearch } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/AppContext'
-import './HealthSpot.css'
 export default function HealthSpot() {
-  const { isLoading, places, GetPlaces } = useGlobalContext();
+  const { isLoading, places, GetPlaces,errorMsg} = useGlobalContext();
   const [place, setPlace] = useState('');
   const handleSearchPlace = () => {
     GetPlaces({ place });
@@ -27,7 +26,10 @@ export default function HealthSpot() {
           <button className='search-btn' onClick={handleSearchPlace}>Search</button>
         </div>
         <p style={{ color: '#555' }}>Enter your location to find nearby clinics and doctors.</p>
-        {isLoading && <p style={{color:'red'}}>Loading  the Hospitals</p>}
+        {isLoading && <p style={{color:'red'}}>Loading  the Hospitals...</p>}
+        {errorMsg!=null &&  (
+            <h5 style={{color:'red'}}>Failed to Fetch Hospitals</h5>
+        )}
         {places && places.length > 0 && (
           <div className='places-list'>
             {places.map((place, index) => (

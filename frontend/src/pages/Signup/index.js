@@ -4,8 +4,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import { VscEye } from "react-icons/vsc";
 import { VscEyeClosed } from "react-icons/vsc";
 import { useGlobalContext } from '../../context/AppContext';
-import { toast } from 'react-toastify';
-
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const Form = {
@@ -56,7 +54,6 @@ export default function Signup() {
             >{showPassword ? <VscEyeClosed /> : <VscEye />}
             </span>
           </div>
-
           <button className='loginBtn'>Signup</button>
           <p style={{ padding: '20px', margin: '10px' }}>Already have an account?
             <Link to="/Login" style={{ color: 'blue', textDecoration: 'none' }}>Login</Link>

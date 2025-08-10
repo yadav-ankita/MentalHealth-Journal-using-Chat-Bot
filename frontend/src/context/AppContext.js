@@ -1,16 +1,19 @@
 import axios from 'axios'
 import '../axios'
+import { getErrorMessage } from '../utils/Error'
 import { toast } from 'react-toastify';
 import React, { useContext, useEffect, useReducer } from 'react'
 import {
   SET_LOADING,
   AUTH_CHECK_DONE,
+  SET_ERROR,
 
   REGISTER_USER_SUCCESS,
   REGISTER_USER_ERROR,
 
   LOGOUT_USER,
   SET_USER,
+
   SUBMIT_SYMPTOMS_SUCCESS,
   SUBMIT_SYMPTOMS_ERROR,
 
@@ -20,13 +23,13 @@ import {
   FETCH_PLACE_SUCCESS,
   FETCH_PLACE_ERROR,
 
-  FETCH_ALL_CHAT_SUCESS,
+  FETCH_ALL_CHAT_SUCCESS,
   FETCH_ALL_CHAT_ERROR,
 
   FETCH_ALL_SYMPTOM_SUCCESS,
   FETCH_ALL_SYMPTOM_ERROR,
 
-  FETCH_PROFILE_INFO_SUCESS,
+  FETCH_PROFILE_INFO_SUCCESS,
   FETCH_PROFILE_INFO_ERROR,
 
   CREATE_HEALTH_GOAL_SUCCESS,
@@ -40,7 +43,7 @@ import reducer from './reducer'
 const initialState = {
   user: null,
   isLoading: false,
-  authChecking:true,
+  authChecking: true,
   symptomResult: '',
   ChatResponse: '',
   places: [],
@@ -48,7 +51,7 @@ const initialState = {
   allChats: [],
   userInfo: null,
   healthGoal: [],
-  
+  errorMsg: null
 }
 const AppContext = React.createContext()
 
@@ -57,6 +60,9 @@ const AppProvider = ({ children }) => {
 
   const setLoading = () => {
     dispatch({ type: SET_LOADING })
+  }
+  const setError = () => {
+    dispatch({ type: SET_ERROR })
   }
   // register
   const register = async ({ name, email, password }) => {
@@ -72,7 +78,7 @@ const AppProvider = ({ children }) => {
         'user',
         JSON.stringify({ name: data.user.name, token: data.token })
       )
-      toast.success("Sign in succesfully!");
+      toast.success("Sign in succcesfully!");
     } catch (error) {
       dispatch({ type: REGISTER_USER_ERROR })
       const msg = error?.response?.data?.msg || "Invalid Credentials"; // backend msg or fallback
@@ -92,35 +98,38 @@ const AppProvider = ({ children }) => {
         'user',
         JSON.stringify({ name: data.user.name, token: data.token })
       )
-      toast.success("Logged in succesfully!");
+      toast.success("Logged in succcesfully!");
     } catch (error) {
       dispatch({ type: REGISTER_USER_ERROR })
-      const msg = error?.response?.data?.msg || "Invalid email or password"; // backend msg or fallback
+      const msg = error?.response?.data?.message || "Invalid email or password"; // backend msg or fallback
       toast.error(msg);
     }
   }
   const submitSymptom = async (symptoms) => {
     setLoading();
+    setError();
     try {
       const { data } = await axios.post(`/dash/symptom`, {
         symptoms
       })
       dispatch({ type: SUBMIT_SYMPTOMS_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: SUBMIT_SYMPTOMS_ERROR })
-      const msg = error?.response?.data?.msg || "Symtom Post Error"; // backend msg or fallback
-      toast.error(msg);
+      const errMsg = error.response?.data?.message || 'We couldn\'t save your symptom report right now. Please try again in a moment.';
+      dispatch({ type: SUBMIT_SYMPTOMS_ERROR, payload: errMsg })
+      toast.error(errMsg);
     }
   }
   const SendMsg = async ({ message }) => {
     setLoading();
+    setError();
     try {
       const { data } = await axios.post(`/dash/chat`, { message })
       dispatch({ type: SEND_CHAT_SUCCESS, payload: data })
       return data;
     } catch (error) {
-      dispatch({ type: SEND_CHAT_ERROR })
-      
+      const errMsg = error.response?.data?.message || 'Your message could not be sent at the moment. Please try again shortly.';
+      dispatch({ type: SEND_CHAT_ERROR, payload: errMsg })
+      toast.error(errMsg)
     }
   }
   const GetPlaces = async ({ place }) => {
@@ -129,58 +138,68 @@ const AppProvider = ({ children }) => {
       return;
     }
     setLoading();
+    setError();
     try {
       const { data } = await axios.get(`/dash/places?query=hospital in ${place}`)
       dispatch({ type: FETCH_PLACE_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: FETCH_PLACE_ERROR })
-      const msg = error?.response?.data?.msg || "Places find Error"; // backend msg or fallback
-      toast.error(msg);
+      const errMsg = error.response?.data?.message || 'Something went wrong. Please try again.';
+      dispatch({ type: FETCH_PLACE_ERROR, payload: errMsg })
     }
   }
   const getAllChat = async () => {
     setLoading();
+    setError();
     try {
       const { data } = await axios.get(`/dash/chat/`)
-      dispatch({ type: FETCH_ALL_CHAT_SUCESS, payload: data })
+      dispatch({ type: FETCH_ALL_CHAT_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: FETCH_ALL_CHAT_ERROR })
+      const errMsg = getErrorMessage(error, "Failed to fetch Chats information.");
+      dispatch({ type: FETCH_ALL_CHAT_ERROR, payload: errMsg })
     }
   }
   const getAllSymptom = async () => {
     setLoading();
+    setError();
     try {
       const { data } = await axios.get(`/dash/symptom/`)
       dispatch({ type: FETCH_ALL_SYMPTOM_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: FETCH_ALL_SYMPTOM_ERROR })
+      const errMsg = getErrorMessage(error, "Failed to fetch Symptom information.");
+      dispatch({ type: FETCH_ALL_SYMPTOM_ERROR, payload: errMsg })
     }
   }
   const getProfileInfo = async () => {
     setLoading();
+    setError();
     try {
       const { data } = await axios.get(`/dash/profile`)
-      dispatch({ type: FETCH_PROFILE_INFO_SUCESS, payload: data })
+      dispatch({ type: FETCH_PROFILE_INFO_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: FETCH_PROFILE_INFO_ERROR })
+      const errMsg = getErrorMessage(error, "Failed to fetch profile information.");
+      dispatch({ type: FETCH_PROFILE_INFO_ERROR, payload: errMsg });
     }
   }
   const getHealthGoals = async () => {
     setLoading();
+    setError();
     try {
-      const { data } = await axios.get(`dash/health`)
+      const { data } = await axios.get(`/dash/health`)
       dispatch({ type: FETCH_HEALTH_GOAL_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: FETCH_HEALTH_GOAL_ERROR })
+      const errMsg = getErrorMessage(error, "Failed to fetch HealthGoal information.");
+      dispatch({ type: FETCH_HEALTH_GOAL_ERROR, payload: errMsg })
     }
   }
-  const creteHealthGoal = async ({ description, targetDate }) => {
+  const createHealthGoal = async ({ description, targetDate }) => {
     setLoading();
+    setError();
     try {
-      const { data } = await axios.post(`dash/health`, { description: description, targetDate: targetDate })
-      dispatch({ type: CREATE_HEALTH_GOAL_SUCCESS,payload:data })
+      const { data } = await axios.post(`/dash/health`, { description: description, targetDate: targetDate })
+      dispatch({ type: CREATE_HEALTH_GOAL_SUCCESS, payload: data })
     } catch (error) {
-      dispatch({ type: CREATE_HEALTH_GOAL_ERROR })
+      const errMsg = getErrorMessage(error, "Failed to Create HealthGoal .");
+      dispatch({ type: CREATE_HEALTH_GOAL_ERROR, payload: errMsg })
     }
   }
   // logout
@@ -211,7 +230,7 @@ const AppProvider = ({ children }) => {
         getAllSymptom,
         getProfileInfo,
         getHealthGoals,
-        creteHealthGoal
+        createHealthGoal
       }}
     >
       {children}

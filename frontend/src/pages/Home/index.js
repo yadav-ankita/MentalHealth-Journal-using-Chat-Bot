@@ -8,7 +8,6 @@ import Box from '../../components/Box/Box';
 import Step from '../../components/Steps/Step';
 import {useGlobalContext} from '../../context/AppContext'
 import { Navigate } from 'react-router-dom';
-import './Home.css'
 export default function Home() {
      const { user } = useGlobalContext();
     return (
@@ -16,28 +15,24 @@ export default function Home() {
               {user && <Navigate to='/Dashboard'/>}
             <Navbar/>
             <Content/>
-            <div id="why-carewell">
-            <h1 className='section-title'>Why Choose CareWell</h1>
+            <div id="why-CogniWell">
+            <h1 className='section-title'>Why Choose CogniWell</h1>
             <div className='flex-container-with-margin'>
-
                 <Box
                     icon={RiLightbulbFlashLine}
                     heading={"Intelligent Health Insights"}
-                    text={"Our smart AI evaluates your health trends to deliver tailored, actionable recommendations."}
+                    text={"Our smart AI eval uates your health trends to deliver tailored, actionable recommendations."}
                 />
-
                 <Box
                     icon={MdSupportAgent}
                     heading={"Smart Health Guidance"}
                     text={"Receive real-time tips and insights tailored to your health needs, before problems arise."}
                 />
-
                 <Box
                     icon={BsPersonHeart}
                     heading={"Custom Wellness Plans"}
                     text={"Get personalized advice crafted around your unique health goals and lifestyle."}
                 />
-
                </div>
             </div>
             <div className='how-it-works-section'>
