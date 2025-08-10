@@ -77,11 +77,11 @@ button {
           background-image: linear-gradient(to right, #9082d6, #C8A1E0);
       }
       .rightSideNav.responsive_nav{
-          /* right: 0; */
+        
           transform: none;
       }
        .rightSide.responsive_nav{
-          /* right: 0; */
+        
           transform: none;
       }
       .nav-close-btn{
@@ -95,7 +95,7 @@ button {
     .webName {
     display: flex;
     align-items: center;
-    z-index: 1100; /* ensure it stays above menu */
+    z-index: 1100; 
   }
   .webName h2 {
     font-size: 1.2rem;
@@ -170,7 +170,7 @@ button {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .Box:hover {
-  transform: translateY(-4px);   /* Optional hover effect */
+  transform: translateY(-4px);  
 }
 .icon{
    font-size: 2rem;
@@ -371,7 +371,7 @@ button {
   border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
-  gap: 8px; /* tighter spacing */
+  gap: 8px;
 }
 .chat-meta {
   display: flex;
@@ -606,11 +606,10 @@ input{
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', sans-serif;
   width: 90%;
-  /* make them full width on small screens */
+
   max-width: 800px;
-  flex: 1; /* <-- allow them to grow/shrink equally */
-  min-width: 0; /* <-- prevent overflow issues */
-  /* limit max width for readability */
+  flex: 1; 
+  min-width: 0; 
 }
 .report-header {
   display: flex;
@@ -621,13 +620,13 @@ input{
 .report-icon {
   font-size: 1.5rem;
   color: #3b82f6;
-  /* Tailwind Blue-500 */
+ 
 }
 .report-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: #1e293b;
-  /* Tailwind Slate-800 */
+  
   margin: 0;
 }
 .selection-severity {
@@ -652,7 +651,6 @@ input{
 }
 .add-btn {
   background-color: #0065F8;
-  /* Tailwind Violet-700 */
   color: white;
   border: none;
   padding: 10px 18px;
@@ -666,7 +664,7 @@ input{
 }
 .submit-btn {
   background-color: #00f81d;
-  /* Tailwind Green-500 */
+  
   color: white;
   border: none;
   padding: 12px 18px;
@@ -694,21 +692,21 @@ input{
 .assessment-icon {
   font-size: 1.5rem;
   color: #facc15;
-  /* Tailwind Yellow-400 */
+  
 }
 
 .assessment-title {
   font-size: 1.4rem;
   font-weight: 700;
   color: #0f172a;
-  /* Tailwind Slate-900 */
+  
   margin: 0;
 }
 
 .assessment-text {
   font-style: italic;
   color: #334155;
-  /* Tailwind Slate-700 */
+  
   font-size: 1rem;
   margin-top: 10px;
 }
@@ -732,12 +730,11 @@ input{
 
 .self-care {
   color: #2563eb;
-  /* Tailwind Blue-600 */
+  
 }
 
 .seek-professional {
   color: #dc2626;
-  /* Tailwind Red-600 */
 }
 
 /* ai response by chatgpt */
@@ -898,7 +895,7 @@ input{
        flex-direction: column;    
   }
   .last-row div{
-        width: 30rem;
+        width: 20rem;
   }
   .user-input,
   .ai-response {
@@ -906,9 +903,6 @@ input{
     max-width: 80%;  
   }
 }
-/* home page css by claude ai  e2e9ff*/
-/* Add these responsive improvements to your existing CSS */
-
 /* Fix for Content component layout issues */
 .contentcontainer {
   height: auto;
@@ -919,10 +913,10 @@ input{
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  margin-top: 10vh; /* Account for fixed navbar */
+  margin-top: 10vh; 
 }
 .content {
-  margin-top: 0; /* Remove excessive margin */
+  margin-top: 0; 
   flex: 1;
   max-width: 50%;
   z-index: 10;
