@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CogniWell</title>
 </head>
 <body>
 <h2 style="text-decoration: underline; padding-bottom: 4px;">🧠 Cogniwell – AI-Powered Health & Wellness Companion</h2>
