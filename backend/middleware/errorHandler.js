@@ -29,7 +29,7 @@ if (err.name === 'ValidationError') {
     customError.msg = `No item found with id : ${err.value}`
     customError.statusCode = 404
   }
-   return res.status(customError.statusCode).json({ msg: customError.msg })
+   return res.status(customError.statusCode).json({ message: customError.msg })
 }
 
 module.exports=errorHandlerMiddleware

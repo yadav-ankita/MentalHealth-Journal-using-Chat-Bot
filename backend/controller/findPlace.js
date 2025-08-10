@@ -9,12 +9,11 @@ const GetPlaces = async(req,res,next)=>{
       headers: {
         'User-Agent': 'YourAppNameHere/1.0 (your@email)',
       },
-    });
+    });                     
     const data = await response.json();
     res.json(data);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ error: 'Failed to fetch data from Nominatim' });
+     next(err);
   }
 }
 module.exports={GetPlaces}
