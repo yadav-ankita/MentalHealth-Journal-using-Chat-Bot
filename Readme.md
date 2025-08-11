@@ -28,11 +28,12 @@ With CogniWell, users can easily check symptoms, chat with an intelligent health
   <li>📍 <strong>Doctor Locator:</strong> Powered by OpenStreetMap for interactive mapping and easy contact.</li>
   <li>🩺 <strong>User-Centric Design:</strong> Clean, accessible UI with secure authentication and personal dashboard features.</li>
   <li>🔐 <strong>Secure Authentication & User Management:</strong>
-    <ul>
-      <li>JWT-based secure login</li>
-      <li>Personal dashboard with saved health plans and chats</li>
+   <ul>
+    <li>JWT-based secure login</li>
+    <li>Password hashing using bcrypt for enhanced security</li>
+    <li>Personal dashboard with saved health plans and chats</li>
     </ul>
-  </li>
+   </li>
 </ul>
 
 <h2 style="text-decoration: underline; padding-bottom: 4px;">🛠️ Technology Stack</h2>
@@ -69,10 +70,14 @@ With CogniWell, users can easily check symptoms, chat with an intelligent health
       <td>Axios</td>
     </tr>
     <tr>
-      <td>Deployment</td>
-      <td>Netlify</td>
-    </tr>
-  </tbody>
+    <td>Deployment</td>
+    <td>Netlify (Frontend), Render (Backend)</td>
+</tr>
+   <tr>
+    <td>Database:</td>
+    <td>MongoDB Atlas</td>
+  </tr>
+</tbody>
 </table>
 
 <h2 style="text-decoration: underline; padding-bottom: 4px;">🔄 How It Works</h2>
